@@ -1,0 +1,27 @@
+---
+description: Development workflow and testing commands for Neovim configuration
+---
+
+# Development Workflow
+
+## Plugin Management Commands
+- `nvim --headless "+Lazy sync" +qa` - Install/update plugins and refresh [lazy-lock.json](mdc:lazy-lock.json)
+- `nvim --headless -c "checkhealth" -c "qa"` - Validate core tooling (LSP, formatters, debuggers)
+- `nvim --headless "+lua vim.cmd('source init.lua')" +qa` - Sanity-check configuration parsing
+
+## Testing Guidelines
+- Test keymaps by opening Neovim and triggering mappings
+- Confirm no conflicts reported in `:map` command
+- Use `:Lazy health` and `:checkhealth` for regression testing
+- Validate LSP/formatter changes with `:lua vim.lsp.buf.format()`
+
+## Configuration Validation
+- Always test changes in Neovim before committing
+- Use `:checkhealth` after dependency changes
+- Verify plugin functionality manually after updates
+- Test with representative project files
+
+## Experimentation
+- Isolate temporary code under `lua/plugins/TODO.lua`
+- Use local branches for experimental features
+- Keep production startup stable during development

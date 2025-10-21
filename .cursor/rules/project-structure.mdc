@@ -1,0 +1,27 @@
+---
+alwaysApply: true
+description: Neovim configuration project structure and organization
+---
+
+# Neovim Configuration Project Structure
+
+## Core Files
+- [init.lua](mdc:init.lua) - Main entry point that bootstraps lazy.nvim and loads core modules
+- [lua/set.lua](mdc:lua/set.lua) - Core Neovim settings and options
+- [lua/remap.lua](mdc:lua/remap.lua) - Key mappings and shortcuts
+- [lua/hades/lazy_init.lua](mdc:lua/hades/lazy_init.lua) - Lazy.nvim plugin configuration
+
+## Plugin Organization
+- Plugin specifications are located in `lua/plugins/` directory
+- Each plugin has its own file (e.g., `treesitter.lua`, `telescope.lua`, `lsp.lua`)
+- Plugin files return Lazy configuration tables
+- Follow lowercase, hyphenated naming convention for plugin files
+
+## Configuration Modules
+- Core functionality modules are in `lua/` directory
+- Plugin-specific utilities should be scoped near their specs
+- Avoid global namespace pollution by keeping helpers modular
+
+## Lock Files
+- [lazy-lock.json](mdc:lazy-lock.json) - Pins plugin versions for reproducible installs
+- Only update through Lazy commands, never hand-edit

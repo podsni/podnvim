@@ -1,0 +1,28 @@
+---
+globs: *.lua
+description: Lua coding style and conventions for Neovim configuration
+---
+
+# Lua Coding Style Guidelines
+
+## Indentation and Formatting
+- Use **two-space indentation** for all Lua files
+- Set `tabstop`, `shiftwidth`, and `softtabstop` to 2
+- Avoid hard tabs completely
+- Use `stylua` for automatic formatting via none-ls and LSP
+
+## String Conventions
+- Prefer **double-quoted strings** over single quotes
+- Use trailing commas in tables for cleaner diffs
+- Match existing plugin specs formatting style
+
+## Code Organization
+- Keep feature-specific logic out of baseline files ([set.lua](mdc:lua/set.lua) and [remap.lua](mdc:lua/remap.lua))
+- Expose helper modules under `lua/` with concise names
+- Scope plugin-specific utilities near their specs
+- Limit global namespace pollution
+
+## Plugin Configuration
+- Each plugin file should return a Lazy configuration table
+- Use descriptive names for plugin files (lowercase, hyphenated)
+- Follow existing patterns in [lua/plugins/](mdc:lua/plugins/) directory

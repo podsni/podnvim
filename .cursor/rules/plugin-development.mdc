@@ -1,0 +1,35 @@
+---
+globs: lua/plugins/*.lua
+description: Guidelines for developing and maintaining Neovim plugins
+---
+
+# Plugin Development Guidelines
+
+## Plugin File Structure
+- Each plugin gets its own file in [lua/plugins/](mdc:lua/plugins/)
+- File naming: lowercase, hyphenated (e.g., `treesitter.lua`, `git-stuff.lua`)
+- Return Lazy configuration table from each plugin file
+
+## Plugin Configuration Patterns
+- Use consistent table structure for Lazy specs
+- Include proper dependencies and requirements
+- Set appropriate lazy loading conditions
+- Configure plugin-specific options clearly
+
+## Key Mapping Integration
+- Add plugin-specific keymaps in the plugin file when possible
+- Use descriptive keymap descriptions
+- Follow existing patterns from [remap.lua](mdc:lua/remap.lua)
+- Test keymaps for conflicts with existing mappings
+
+## LSP and Language Support
+- Configure language servers in [lua/plugins/lsp.lua](mdc:lua/plugins/lsp.lua)
+- Use Mason for LSP installation and management
+- Configure formatters via none-ls integration
+- Test language-specific features thoroughly
+
+## Plugin Dependencies
+- Declare dependencies clearly in Lazy configuration
+- Use version pinning for critical plugins
+- Test plugin interactions and conflicts
+- Document any special setup requirements

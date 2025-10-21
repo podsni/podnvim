@@ -1,0 +1,32 @@
+---
+description: Commit and pull request guidelines for Neovim configuration
+---
+
+# Commit and Pull Request Guidelines
+
+## Commit Messages
+- Use **imperative mood** (e.g., "add", "update", "fix")
+- Keep messages concise but descriptive
+- Expand short messages to specify what changed (e.g., "feat: add rust tooling")
+- Use lowercase for simple updates, expand for significant changes
+
+## Pull Request Guidelines
+- Reference related issues in PR body
+- Describe user-visible effects clearly
+- Mention any follow-up tasks needed
+- Include reproduction or validation steps
+- Note plugin migrations or breaking changes
+- Attach screenshots for visual changes
+
+## Validation Steps
+Include these commands in PR descriptions:
+- `nvim --headless "+Lazy sync" +qa` - Plugin installation test
+- `nvim --headless -c "checkhealth" -c "qa"` - Health check validation
+- Manual testing steps for new features
+- Keymap conflict verification
+
+## Security Considerations
+- Never commit machine-specific secrets
+- Use local environment variables for API tokens
+- Document any required environment setup
+- Avoid hardcoded paths or personal information
